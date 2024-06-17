@@ -27,11 +27,10 @@ public class CategoryEntity {
 	private UUID category_id;
 	@Column(unique = true)
 	private String name;
-	@OneToMany(mappedBy = "categoryEntity", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	@Fetch(FetchMode.SUBSELECT)
+	@OneToMany(mappedBy = "categoryEntity", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@Fetch(FetchMode.SELECT)
 	@OrderBy("price DESC")
 	private List<ProductEntity> productEntities;
-	@BatchSize(size = 10)
 	@Override
 	public String toString() {
 		return "("+category_id+"="+name+")";

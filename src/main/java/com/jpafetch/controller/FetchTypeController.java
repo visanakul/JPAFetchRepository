@@ -29,7 +29,7 @@ public class FetchTypeController {
 	public List<CategoryEntity> getAllCategories() {
 		List<String> productTitles=new ArrayList<>();
 		List<CategoryEntity> categoryEntities = categoryRepository.findAll();
-		System.out.println("-----Before fetching children(EAGER,SUBSELECT, BatchSize 10)-----");
+		System.out.println("-----Before fetching children(LAZY,SELECT)-----");
 		System.out.println(categoryEntities);
 		categoryEntities.forEach(c -> {
 			System.out.println();
