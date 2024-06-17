@@ -28,8 +28,9 @@ public class CategoryEntity {
 	@Column(unique = true)
 	private String name;
 	@OneToMany(mappedBy = "categoryEntity", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@Fetch(FetchMode.SELECT)
+	@Fetch(FetchMode.JOIN)
 	@OrderBy("price DESC")
+	@BatchSize(size = 10)
 	private List<ProductEntity> productEntities;
 	@Override
 	public String toString() {
