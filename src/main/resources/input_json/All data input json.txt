@@ -1,0 +1,62 @@
+[
+   {
+      "name":"men's clothing",
+      "productEntities":[
+         {
+            "title":"Clothing Men",
+            "price":"400.00",
+            "description":"Men Cloths"
+         },
+         {
+            "title":"Clothing child",
+            "price":"200.00",
+            "description":"child cloths"
+         }
+      ]
+   },
+   {
+      "name":"women's clothing",
+      "productEntities":[
+         {
+            "title":"Clothing women",
+            "price":"500.00",
+            "description":"women cloths"
+         },
+         {
+            "title":"Clothing child",
+            "price":"250.00",
+            "description":"Child cloths"
+         }
+      ]
+   },
+   {
+      "name":"Shoes",
+      "productEntities":[
+         {
+            "title":"Shoes Men",
+            "price":"400.00",
+            "description":"Men Shoes"
+         },
+         {
+            "title":"Shoes Women",
+            "price":"200.00",
+            "description":"Women shoes"
+         }
+      ]
+   },
+   {
+      "name":"Jeans",
+      "productEntities":[
+         {
+            "title":"Jeans women",
+            "price":"500.00",
+            "description":"women jeans"
+         },
+         {
+            "title":"JeansMen",
+            "price":"250.00",
+            "description":"Men Jeans"
+         }
+      ]
+   }
+]
