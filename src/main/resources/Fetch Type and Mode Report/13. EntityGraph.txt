@@ -1,0 +1,47 @@
+Hibernate: 
+    select
+        ce1_0.category_id,
+        ce1_0.name,
+        pe1_0.category_id,
+        pe1_0.product_id,
+        ce2_0.category_id,
+        ce2_0.name,
+        pe1_0.description,
+        pe1_0.price,
+        pe1_0.title 
+    from
+        category ce1_0 
+    left join
+        product pe1_0 
+            on ce1_0.category_id=pe1_0.category_id 
+    left join
+        category ce2_0 
+            on ce2_0.category_id=pe1_0.category_id 
+    order by
+        pe1_0.price desc
+-----Before fetching children(LAZY,JOIN, Batch 10)-----
+[(3cb13198-28be-4d71-aa01-7c38ccb35d49=Jeans), (20ad244e-230e-4b07-b326-28f010d27943=women's clothing), (a3098b2a-d959-4ca7-85f8-dd9e56bed422=men's clothing), (bd661a7b-167b-49cd-935d-a4f4d8735df2=Shoes)]
+
+Jeans
+
+women's clothing
+
+men's clothing
+
+Shoes
+-----After fetching children-----
+[(3cb13198-28be-4d71-aa01-7c38ccb35d49=Jeans), (20ad244e-230e-4b07-b326-28f010d27943=women's clothing), (a3098b2a-d959-4ca7-85f8-dd9e56bed422=men's clothing), (bd661a7b-167b-49cd-935d-a4f4d8735df2=Shoes)]
+[Levis Men, Levis Women, Clothing women, Clothing child, Clothing Men, Clothing child, Adidas, Adidas]
+[2m2024-06-17T11:34:52.840+05:30[0;39m [32m INFO[0;39m [35m10732[0;39m [2m---[0;39m [2m[JpaFetchDemo] [nio-8080-exec-2][0;39m [2m[0;39m[36mi.StatisticalLoggingSessionEventListener[0;39m [2m:[0;39m Session Metrics {
+    353901 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    94400 nanoseconds spent preparing 1 JDBC statements;
+    5596900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    273088830973000 nanoseconds spent executing 1 pre-partial-flushes;
+    3600 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
