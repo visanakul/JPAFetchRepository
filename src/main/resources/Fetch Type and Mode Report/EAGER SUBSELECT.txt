@@ -1,0 +1,48 @@
+Hibernate: 
+    select
+        ce1_0.category_id,
+        ce1_0.name 
+    from
+        category ce1_0
+Hibernate: 
+    select
+        pe1_0.category_id,
+        pe1_0.product_id,
+        pe1_0.description,
+        pe1_0.price,
+        pe1_0.title 
+    from
+        product pe1_0 
+    where
+        pe1_0.category_id in (select
+            ce1_0.category_id 
+        from
+            category ce1_0) 
+    order by
+        pe1_0.price desc
+-----Before fetching children(EAGER,SUBSELECT)-----
+[(3cb13198-28be-4d71-aa01-7c38ccb35d49=Jeans), (a3098b2a-d959-4ca7-85f8-dd9e56bed422=men's clothing), (bd661a7b-167b-49cd-935d-a4f4d8735df2=Shoes), (20ad244e-230e-4b07-b326-28f010d27943=women's clothing)]
+
+Jeans
+
+men's clothing
+
+Shoes
+
+women's clothing
+-----After fetching children-----
+[(3cb13198-28be-4d71-aa01-7c38ccb35d49=Jeans), (a3098b2a-d959-4ca7-85f8-dd9e56bed422=men's clothing), (bd661a7b-167b-49cd-935d-a4f4d8735df2=Shoes), (20ad244e-230e-4b07-b326-28f010d27943=women's clothing)]
+[Levis Men, Levis Women, Clothing Men, Clothing child, Adidas, Adidas, Clothing women, Clothing child]
+[2m2024-06-17T09:54:14.974+05:30[0;39m [32m INFO[0;39m [35m10732[0;39m [2m---[0;39m [2m[JpaFetchDemo] [nio-8080-exec-2][0;39m [2m[0;39m[36mi.StatisticalLoggingSessionEventListener[0;39m [2m:[0;39m Session Metrics {
+    550600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    246101 nanoseconds spent preparing 2 JDBC statements;
+    2552400 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    267050967419501 nanoseconds spent executing 1 pre-partial-flushes;
+    6700 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
